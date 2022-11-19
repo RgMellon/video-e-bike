@@ -1,0 +1,27 @@
+{
+    "equipments": [
+      {
+        "id": "1",
+        "image": "https://i.imgur.com/zjgFbOM.png",
+        "model": "PEUGEOT",
+        "title": "Road Bike", 
+        "price": 29439
+      },
+      {
+        "id": "2",
+        "image": "https://i.imgur.com/MUdLCNj.png",
+        "model": "PEUGEOT",
+        "title": "SMITH - Trade", 
+        "price": 120
+      },
+      {
+        "id": "3",
+        "image": "https://i.imgur.com/LkuTy3r.png",
+        "model": "PEUGEOT",
+        "title": "PILOT - Chromoly ", 
+        "price": 400
+      }
+    ]
+  }
+
+  
