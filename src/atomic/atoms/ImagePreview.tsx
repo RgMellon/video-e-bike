@@ -15,7 +15,7 @@ export function ImagePreview({
     return (
         <Box
             width="100%"
-            height={!showDescription ? "280" : "200"}
+            height={showDescription ? "280" : "200"}
             justifyContent="center"
             alignItems="center"
         >
