@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Box, Button, HStack, Image, Text } from "native-base";
-import { useRoute } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 import api from "../../service/api";
 import { CardProps } from "../Home";
 
@@ -13,6 +13,7 @@ import Animated, {
     withTiming,
     useAnimatedStyle,
 } from "react-native-reanimated";
+import { Header } from "../../atomic/molecules/Header";
 
 type RouteParams = {
     equipmentId: string;
@@ -20,6 +21,9 @@ type RouteParams = {
 
 export function Detail() {
     const route = useRoute();
+
+    const { goBack } = useNavigation();
+
     const { equipmentId } = route.params as RouteParams;
 
     const [equipment, setEquipment] = useState<CardProps>({} as CardProps);
@@ -69,8 +73,25 @@ export function Detail() {
         };
     });
 
+    function handlePress() {
+        if (toggleDescription) {
+            goBack();
+            return;
+        }
+        handleAnimatedToggle();
+    }
+
     return (
         <>
+            <Box pl="20px" pr="20px" mt="-20px">
+                <Header
+                    text={equipment.title}
+                    inverted={true}
+                    type={toggleDescription ? "goBack" : "down"}
+                    handlePress={handlePress}
+                />
+            </Box>
+
             <Box
                 flex="1"
                 position="relative"
