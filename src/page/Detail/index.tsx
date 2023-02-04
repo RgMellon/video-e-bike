@@ -22,7 +22,7 @@ type RouteParams = {
 export function Detail() {
     const route = useRoute();
 
-    const { goBack } = useNavigation();
+    const { goBack, navigate } = useNavigation();
 
     const { equipmentId } = route.params as RouteParams;
 
@@ -79,6 +79,10 @@ export function Detail() {
             return;
         }
         handleAnimatedToggle();
+    }
+
+    function handleAddCart() {
+        navigate("Cart");
     }
 
     return (
@@ -192,7 +196,7 @@ export function Detail() {
                                 shadow={5}
                                 bg="ocean.200"
                                 _pressed={{ bgColor: "ocean.100" }}
-                                onPress={() => {}}
+                                onPress={handleAddCart}
                             >
                                 Add to Cart
                             </Button>
